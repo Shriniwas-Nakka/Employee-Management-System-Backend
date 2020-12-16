@@ -39,6 +39,29 @@ class EmployeeModel {
             next(error);
         }
     }
+
+    update = (req, next) => {
+        try {
+            return new Promise((resolve, reject) => {
+                // let sql = "UPDATE employees SET firstName = ?, lastName = ?, email = ?, address = ?, city = ?, company = ?, designation = ?, mobile = ?  WHERE empId = ?";
+                // let updatedData = [req.body.firstName, req.body.lastName, req.body.email, req.body.address, req.body.city, req.body.company, req.body.designation, req.body.mobile, req.params.empId]
+                let sql = "UPDATE employees SET ?  WHERE empId = ?";
+                let updatedData = [req.body, req.params.empId]
+
+                dbConnection.query(sql, updatedData, (err, result) => {
+                    if (err) {
+                        console.log(err);
+                        reject(err)
+                    } else {
+                        resolve(result)
+                    }
+                })
+            })
+        } catch (error) {
+            next(error);
+        }
+    }
+
 }
 
 module.exports = new EmployeeModel()
