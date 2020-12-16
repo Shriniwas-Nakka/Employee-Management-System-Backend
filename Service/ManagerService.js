@@ -26,6 +26,20 @@ class ManagerService {
         }
     }
 
+    managerLoginService = (req, next) => {
+        try {
+            return managerModel.login(req).then((result) => {
+                console.log(result);
+                return (result)
+            }).catch((err) => {
+                console.log('jh', err);
+                return (err)
+            })
+        } catch (error) {
+            next(error);
+        }
+    }
+
 }
 
 module.exports = new ManagerService();

@@ -36,6 +36,32 @@ class ManagerModel {
         }
     }
 
+    login = (req, next) => {
+        try {
+            return new Promise((resolve, reject) => {
+                let sql = "SELECT * FROM managers WHERE email = ?"
+                dbConnection.query(sql, [req.email], (err, result) => {
+                    console.log();
+                    if (err) {
+                        reject(err);
+                    } else {
+                        if (result.length > 0) {
+                            if (result[0].password === req.password) {
+                                resolve({ "code": "200", "flag": "true", "message": "Login Successful !", "data": result });
+                            } else {
+                                reject({ "code": "204", "flag": "false", "message": "password does not match !" });
+                            }
+                        } else {
+                            reject({ "code": "206", "flag": "false", "message": "email id does not exists !" });
+                        }
+                    }
+                })
+            })
+        } catch (error) {
+            next(error);
+        }
+    }
+
 }
 
 module.exports = new ManagerModel();
