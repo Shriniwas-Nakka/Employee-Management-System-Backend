@@ -22,6 +22,23 @@ class EmployeeModel {
             next(error);
         }
     }
+
+    read = (req, next) => {
+        try {
+            return new Promise((resolve, reject) => {
+                let sql = "SELECT * FROM employees"
+                dbConnection.query(sql, (err, result) => {
+                    if (err) {
+                        reject(err)
+                    } else {
+                        resolve(result)
+                    }
+                })
+            })
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 module.exports = new EmployeeModel()

@@ -14,6 +14,18 @@ class EmployeeService {
         }
     }
 
+    getEmployeesService = (req, next) => {
+        try {
+            return employeeModel.read().then((result) => {
+                return ({ message: "Employee records Found !", data: result })
+            }).catch((err) => {
+                return ({ message: "No records found !", error: null })
+            })
+        } catch (error) {
+            next(error);
+        }
+    }
+
 }
 
 module.exports = new EmployeeService();

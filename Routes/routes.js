@@ -9,6 +9,6 @@ route.post('/manager/login', managerController.managerLoginController);
 
 // RestFull API's for employee
 route.post('/employee/add', employeeController.addEmployeeController);
-
+route.get('/employee/read', employeeController.getEmployeesController);
 
 module.exports = route;
