@@ -2,6 +2,11 @@ const employeeModel = require('../Model/EmployeeModel');
 
 class EmployeeService {
 
+    /**
+     * purpose: business logic at add employee service level
+     * @param {*} req 
+     * @param {*} next 
+     */
     addEmployeeService = (req, next) => {
         try {
             return employeeModel.create(req).then((result) => {
@@ -14,6 +19,11 @@ class EmployeeService {
         }
     }
 
+    /**
+     * purpose: business logic at get employees service level
+     * @param {*} req 
+     * @param {*} next 
+     */
     getEmployeesService = (req, next) => {
         try {
             return employeeModel.read().then((result) => {
@@ -26,6 +36,11 @@ class EmployeeService {
         }
     }
 
+    /**
+     * purpose: business logic at update employee service level
+     * @param {*} req 
+     * @param {*} next 
+     */
     updateEmployeeService = (req, next) => {
         try {
             return employeeModel.update(req).then((result) => {
@@ -38,6 +53,11 @@ class EmployeeService {
         }
     }
 
+    /**
+     * purpose: business logic at delete employee service level
+     * @param {*} req 
+     * @param {*} next 
+     */
     deleteEmployeeService = (req, next) => {
         try {
             return employeeModel.delete(req).then((result) => {

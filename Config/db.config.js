@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 
+// mysql connection configuration
 let mysqlConnection = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
@@ -7,6 +8,7 @@ let mysqlConnection = mysql.createConnection({
     database: 'employee_db'
 });
 
+// connecting to mysql database
 mysqlConnection.connect((err) => {
     if (!err) {
         console.log("Database conncetion established succssfully !");

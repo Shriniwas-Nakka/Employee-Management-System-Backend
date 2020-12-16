@@ -13,6 +13,7 @@ app.use(express.json());
 // defined root routes
 app.use('/api', route)
 
+// globle exception handling
 app.use((error, req, res, next) => {
     res.status(500).send({
         message: "Internal server error",

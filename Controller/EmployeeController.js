@@ -3,6 +3,12 @@ const response = {};
 
 class EmployeeController {
 
+    /**
+     * purpose: SMD format at add employee controller level
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
     addEmployeeController = (req, res, next) => {
         try {
             employeeService.addEmployeeService(req.body).then((result) => {
@@ -21,6 +27,12 @@ class EmployeeController {
         }
     }
 
+    /**
+     * purpose: SMD format at get employees controller level
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
     getEmployeesController = (req, res, next) => {
         try {
             employeeService.getEmployeesService(req.body).then((result) => {
@@ -39,6 +51,12 @@ class EmployeeController {
         }
     }
 
+    /**
+     * purpose: SMD format at update employee controller level
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
     updateEmployeeController = (req, res, next) => {
         try {
             employeeService.updateEmployeeService(req).then((result) => {
@@ -57,6 +75,12 @@ class EmployeeController {
         }
     }
 
+    /**
+     * purpose: SMD format at delete employee controller level
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
     deleteEmployeeController = (req, res, next) => {
         try {
             employeeService.deleteEmployeeService(req.params.empId).then((result) => {

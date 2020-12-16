@@ -2,6 +2,11 @@ const dbConnection = require('../Config/db.config');
 
 class EmployeeModel {
 
+    /**
+     * purpose: create record
+     * @param {*} req 
+     * @param {*} next 
+     */
     create = (req, next) => {
         try {
             return new Promise((resolve, reject) => {
@@ -23,6 +28,11 @@ class EmployeeModel {
         }
     }
 
+    /**
+     * purpose: read record
+     * @param {*} req 
+     * @param {*} next 
+     */
     read = (req, next) => {
         try {
             return new Promise((resolve, reject) => {
@@ -46,6 +56,11 @@ class EmployeeModel {
         }
     }
 
+    /**
+     * purpose: update record
+     * @param {*} req 
+     * @param {*} next 
+     */
     update = (req, next) => {
         try {
             return new Promise((resolve, reject) => {
@@ -68,12 +83,15 @@ class EmployeeModel {
         }
     }
 
+    /**
+     * purpose: delete record
+     * @param {*} req 
+     * @param {*} next 
+     */
     delete = (req, next) => {
         try {
             return new Promise((resolve, reject) => {
-
                 let sql = "DELETE FROM employees WHERE empId = ?";
-
                 dbConnection.query(sql, req, (err, result) => {
                     if (err) {
                         reject(err)
@@ -93,4 +111,4 @@ class EmployeeModel {
 
 }
 
-module.exports = new EmployeeModel()
+module.exports = new EmployeeModel();

@@ -2,6 +2,11 @@ const dbConnection = require('../Config/db.config');
 
 class ManagerModel {
 
+    /**
+     * purpose: create record
+     * @param {*} req 
+     * @param {*} next 
+     */
     create = (req, next) => {
         try {
             return new Promise((resolve, reject) => {
@@ -19,6 +24,11 @@ class ManagerModel {
         }
     }
 
+    /**
+     * purpose: read records
+     * @param {*} req 
+     * @param {*} next 
+     */
     read = (req, next) => {
         try {
             return new Promise((resolve, reject) => {
@@ -36,6 +46,11 @@ class ManagerModel {
         }
     }
 
+    /**
+     * purpose: login base on email and password
+     * @param {*} req 
+     * @param {*} next 
+     */
     login = (req, next) => {
         try {
             return new Promise((resolve, reject) => {

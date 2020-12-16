@@ -3,6 +3,12 @@ const response = {};
 
 class ManagerController {
 
+    /**
+     * purpose: SMD format at manager registration controller level
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
     managerRegistrationController = (req, res, next) => {
         try {
             managerService.managerRegistrationService(req.body).then((result) => {
@@ -21,6 +27,12 @@ class ManagerController {
         }
     }
 
+    /**
+     * purpose: SMD format at get managers controller level
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
     getManagersController = (req, res, next) => {
         try {
             managerService.getManagersController().then((result) => {
@@ -39,6 +51,12 @@ class ManagerController {
         }
     }
 
+    /**
+     * purpose: SMD format at manager login controller level
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
     managerLoginController = (req, res, next) => {
         try {
             managerService.managerLoginService(req.body).then((result) => {

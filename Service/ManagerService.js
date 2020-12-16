@@ -2,6 +2,11 @@ const managerModel = require('../Model/ManagerModel');
 
 class ManagerService {
 
+    /**
+     * purpose: business logic at manager registration service level
+     * @param {*} req 
+     * @param {*} next 
+     */
     managerRegistrationService = (req, next) => {
         try {
             return managerModel.create(req).then((result) => {
@@ -14,6 +19,11 @@ class ManagerService {
         }
     }
 
+    /**
+     * purpose: business logic at get managers service level
+     * @param {*} req 
+     * @param {*} next 
+     */
     getManagersController = (req, next) => {
         try {
             return managerModel.read().then((result) => {
@@ -26,6 +36,11 @@ class ManagerService {
         }
     }
 
+    /**
+     * purpose: business logic at manager login service level
+     * @param {*} req 
+     * @param {*} next 
+     */
     managerLoginService = (req, next) => {
         try {
             return managerModel.login(req).then((result) => {
