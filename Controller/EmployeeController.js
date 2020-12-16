@@ -24,10 +24,10 @@ class EmployeeController {
     getEmployeesController = (req, res, next) => {
         try {
             employeeService.getEmployeesService(req.body).then((result) => {
-                response.success = true;
+                response.success = result.flag;
                 response.message = result.message;
                 response.data = result.data;
-                return res.status(200).send(response);
+                return res.status(result.code).send(response);
             }).catch((err) => {
                 response.success = false;
                 response.message = err.message;
@@ -46,6 +46,25 @@ class EmployeeController {
                 response.message = result.message;
                 response.data = result.data;
                 return res.status(200).send(response);
+            }).catch((err) => {
+                response.success = false;
+                response.message = err.message;
+                response.data = err.error;
+                return res.status(400).send(response);
+            })
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    deleteEmployeeController = (req, res, next) => {
+        try {
+            employeeService.deleteEmployeeService(req.params.empId).then((result) => {
+                console.log(result);
+                response.success = result.flag;
+                response.message = result.message;
+                response.data = result.data;
+                return res.status(result.code).send(response);
             }).catch((err) => {
                 response.success = false;
                 response.message = err.message;

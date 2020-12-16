@@ -28,10 +28,16 @@ class EmployeeModel {
             return new Promise((resolve, reject) => {
                 let sql = "SELECT * FROM employees"
                 dbConnection.query(sql, (err, result) => {
+                    console.log(result.length);
+
                     if (err) {
                         reject(err)
                     } else {
-                        resolve(result)
+                        if (result.length == 0) {
+                            reject()
+                        } else {
+                            resolve(result)
+                        }
                     }
                 })
             })
@@ -54,6 +60,29 @@ class EmployeeModel {
                         reject(err)
                     } else {
                         resolve(result)
+                    }
+                })
+            })
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    delete = (req, next) => {
+        try {
+            return new Promise((resolve, reject) => {
+
+                let sql = "DELETE FROM employees WHERE empId = ?";
+
+                dbConnection.query(sql, req, (err, result) => {
+                    if (err) {
+                        reject(err)
+                    } else {
+                        if (result.affectedRows > 0) {
+                            resolve(result)
+                        } else {
+                            reject({ message: "Employee Id does not exists !" })
+                        }
                     }
                 })
             })

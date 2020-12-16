@@ -41,7 +41,6 @@ class ManagerModel {
             return new Promise((resolve, reject) => {
                 let sql = "SELECT * FROM managers WHERE email = ?"
                 dbConnection.query(sql, [req.email], (err, result) => {
-                    console.log();
                     if (err) {
                         reject(err);
                     } else {

@@ -11,5 +11,6 @@ route.post('/manager/login', managerController.managerLoginController);
 route.post('/employee/add', employeeController.addEmployeeController);
 route.get('/employee/read', employeeController.getEmployeesController);
 route.put('/employee/update/:empId', employeeController.updateEmployeeController);
+route.delete('/employee/delete/:empId', employeeController.deleteEmployeeController);
 
 module.exports = route;
